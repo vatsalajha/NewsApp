@@ -5,8 +5,12 @@ import 'package:news_app_api/helper/widgets.dart';
 import 'package:news_app_api/models/categorie_model.dart';
 import 'package:news_app_api/views/categorie_news.dart';
 import '../helper/news.dart';
+import 'package:news_app_api/camera_screen.dart';
 
 class HomePage extends StatefulWidget {
+  static const String id = 'home_screen';
+  var cameras;
+  HomePage({this.cameras});
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -100,11 +104,12 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-          builder: (context) => CategoryNews(
-            newsCategory: categoryName.toLowerCase(),
-          )
-        ));
+        Navigator.pushNamed(context, CameraScreen.id);
+//        Navigator.push(context, MaterialPageRoute(
+//          builder: (context) => CategoryNews(
+//            newsCategory: categoryName.toLowerCase(),
+//          )
+//        ));
       },
       child: Container(
         margin: EdgeInsets.only(right: 14),
